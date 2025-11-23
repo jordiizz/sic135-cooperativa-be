@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ues.edu.sv.fmo.sic1352025.segundo.semestre_contabilidad_war_0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.CreditoSocio</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.Empleado</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoEmpleado</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoCredito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoCuentaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.CuentaContable</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.OperacionBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.Persona</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.Socio</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.CabeceraTransaccion</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.CuentaOperacion</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoCuentaContable</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoTarjetaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.Credito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.MetadatoTipoCredito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.EmpleadoSalario</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.CuentaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.Transaccion</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TipoCreditoCaracteristica</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.TarjetaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoCuentaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CuentaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.MetadatoTipoCredito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TarjetaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoCreditoCaracteristica</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.EmpleadoSalario</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Persona</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CuentaOperacion</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Socio</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.OperacionBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoCuentaContable</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CuentaContable</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CabeceraTransaccion</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Empleado</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CreditoSocio</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoCredito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoEmpleado</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoTarjetaBancaria</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Credito</class>
+    <class>ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Transaccion</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/sic135_contabilidad"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="abc123"/>
+    </properties>
+  </persistence-unit>
+</persistence>
