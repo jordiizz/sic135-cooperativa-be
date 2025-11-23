@@ -4,7 +4,7 @@ import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import java.io.Serializable;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceContext;
 import ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.Credito;
 
 /**
