@@ -6,12 +6,14 @@ package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -41,16 +43,25 @@ public class CuentaContable implements Serializable {
     private String nombre;
     @Column(name = "codigo")
     private BigInteger codigo;
+
+    @JsonbTransient
     @OneToMany(mappedBy = "idCuentaContablePadre")
-    private Collection<CuentaContable> cuentaContableCollection;
+    private List<CuentaContable> cuentaContablePadreCollection;
+
     @JoinColumn(name = "id_cuenta_contable_padre", referencedColumnName = "id_cuenta_contable")
     @ManyToOne
     private CuentaContable idCuentaContablePadre;
+
     @JoinColumn(name = "id_tipo_cuenta_contable", referencedColumnName = "id_tipo_cuenta_contable")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private TipoCuentaContable idTipoCuentaContable;
+
+    @JsonbTransient
     @OneToMany(mappedBy = "idCuentaContable")
-    private Collection<CuentaOperacion> cuentaOperacionCollection;
+    private List<CuentaOperacion> cuentaOperacionCollection;
+
+    @Column(name = "naturaleza")
+    private String naturaleza;
 
     public CuentaContable() {
     }
@@ -83,12 +94,12 @@ public class CuentaContable implements Serializable {
         this.codigo = codigo;
     }
 
-    public Collection<CuentaContable> getCuentaContableCollection() {
-        return cuentaContableCollection;
+    public List<CuentaContable> getCuentaContablePadreCollection() {
+        return cuentaContablePadreCollection;
     }
 
-    public void setCuentaContableCollection(Collection<CuentaContable> cuentaContableCollection) {
-        this.cuentaContableCollection = cuentaContableCollection;
+    public void setCuentaContablePadreCollection(List<CuentaContable> cuentaContableCollection) {
+        this.cuentaContablePadreCollection = cuentaContableCollection;
     }
 
     public CuentaContable getIdCuentaContablePadre() {
@@ -107,12 +118,21 @@ public class CuentaContable implements Serializable {
         this.idTipoCuentaContable = idTipoCuentaContable;
     }
 
-    public Collection<CuentaOperacion> getCuentaOperacionCollection() {
+    public List<CuentaOperacion> getCuentaOperacionCollection() {
         return cuentaOperacionCollection;
     }
 
-    public void setCuentaOperacionCollection(Collection<CuentaOperacion> cuentaOperacionCollection) {
+    public void setCuentaOperacionCollection(List<CuentaOperacion> cuentaOperacionCollection) {
         this.cuentaOperacionCollection = cuentaOperacionCollection;
+    }
+
+
+    public String getNaturaleza() {
+        return naturaleza;
+    }
+
+    public void setNaturaleza(String naturaleza) {
+        this.naturaleza = naturaleza;
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.UUID;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +36,9 @@ public class TipoCuentaContable implements Serializable {
     private UUID idTipoCuentaContable;
     @Column(name = "nombre")
     private String nombre;
+
     @OneToMany(mappedBy = "idTipoCuentaContable")
+    @JsonbTransient
     private Collection<CuentaContable> cuentaContableCollection;
 
     public TipoCuentaContable() {

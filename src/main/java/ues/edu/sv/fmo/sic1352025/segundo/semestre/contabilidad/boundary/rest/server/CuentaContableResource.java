@@ -9,6 +9,7 @@ import jakarta.ws.rs.core.Response;
 import java.io.Serializable;
 import java.util.List;
 import ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.control.CuentaContableBean;
+import ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.control.TipoCuentaContableBean;
 import ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CuentaContable;
 
 /**
@@ -20,6 +21,9 @@ public class CuentaContableResource implements Serializable{
     
     @Inject
     CuentaContableBean cuentaContableBean;
+
+    @Inject
+    TipoCuentaContableBean tipoCuentaContableBean;
     
     @GET
     @Produces({MediaType.APPLICATION_JSON})
