@@ -30,8 +30,16 @@
             <version>10.0.0</version>
             <scope>provided</scope>
         </dependency>
+         <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.15.0</version>
+        </dependency>
     </dependencies>
+   
+
     <build>
+
         <finalName>contabilidad</finalName>
         <plugins>
             <plugin>
@@ -49,10 +57,12 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
+                <version>3.10</version>
                 <configuration>
                     <installDirectory>
                         /home/jordi/open_liberty/wlp
                     </installDirectory>
+                            <serverName>sic135_contabilidad</serverName>
                 </configuration>
             </plugin>
         </plugins>

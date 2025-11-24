@@ -6,7 +6,6 @@ import jakarta.persistence.criteria.Root;
 import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-
 /**
  *
  * @author jordi
@@ -15,11 +14,12 @@ public abstract class AbstractDataPersist<T> {
 
     public abstract EntityManager getEntityManager();
 
-    Class tipoDatos;
+    Class<T> tipoDatos;
 
-    public AbstractDataPersist(Class tipoDatos) {
+    public AbstractDataPersist(Class<T> tipoDatos) {
         this.tipoDatos = tipoDatos;
     }
+
 
     public void persistEntity(T entity) throws IllegalStateException, IllegalArgumentException {
         try {
@@ -133,7 +133,7 @@ public abstract class AbstractDataPersist<T> {
             TypedQuery<T> query = em.createQuery(cq);
             return query.getResultList();
         } catch (Exception ex) {
-            throw new IllegalStateException("Error al acceder al obtener Leer de Tipo", ex);
+            throw new IllegalStateException("Error al acceder al obtener ", ex);
 
         }
     }

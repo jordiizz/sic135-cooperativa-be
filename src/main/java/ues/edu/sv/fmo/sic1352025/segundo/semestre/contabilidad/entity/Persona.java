@@ -6,11 +6,12 @@ package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.UUID;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
@@ -32,9 +33,8 @@ public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Lob
     @Column(name = "id_persona")
-    private Object idPersona;
+    private UUID idPersona;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "documento_identidad")
@@ -49,15 +49,15 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(Object idPersona) {
+    public Persona(UUID idPersona) {
         this.idPersona = idPersona;
     }
 
-    public Object getIdPersona() {
+    public UUID getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(Object idPersona) {
+    public void setIdPersona(UUID idPersona) {
         this.idPersona = idPersona;
     }
 
@@ -108,18 +108,6 @@ public class Persona implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Persona)) {
-            return false;
-        }
-        Persona other = (Persona) object;
-        if ((this.idPersona == null && other.idPersona != null) || (this.idPersona != null && !this.idPersona.equals(other.idPersona))) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {

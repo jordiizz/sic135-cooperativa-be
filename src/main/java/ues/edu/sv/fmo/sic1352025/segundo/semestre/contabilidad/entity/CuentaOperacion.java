@@ -5,12 +5,13 @@
 package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -29,9 +30,8 @@ public class CuentaOperacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Lob
     @Column(name = "id_cuenta_operacion")
-    private Object idCuentaOperacion;
+    private UUID idCuentaOperacion;
     @JoinColumn(name = "id_cuenta_contable", referencedColumnName = "id_cuenta_contable")
     @ManyToOne
     private CuentaContable idCuentaContable;
@@ -42,15 +42,15 @@ public class CuentaOperacion implements Serializable {
     public CuentaOperacion() {
     }
 
-    public CuentaOperacion(Object idCuentaOperacion) {
+    public CuentaOperacion(UUID idCuentaOperacion) {
         this.idCuentaOperacion = idCuentaOperacion;
     }
 
-    public Object getIdCuentaOperacion() {
+    public UUID getIdCuentaOperacion() {
         return idCuentaOperacion;
     }
 
-    public void setIdCuentaOperacion(Object idCuentaOperacion) {
+    public void setIdCuentaOperacion(UUID idCuentaOperacion) {
         this.idCuentaOperacion = idCuentaOperacion;
     }
 
@@ -77,18 +77,7 @@ public class CuentaOperacion implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CuentaOperacion)) {
-            return false;
-        }
-        CuentaOperacion other = (CuentaOperacion) object;
-        if ((this.idCuentaOperacion == null && other.idCuentaOperacion != null) || (this.idCuentaOperacion != null && !this.idCuentaOperacion.equals(other.idCuentaOperacion))) {
-            return false;
-        }
-        return true;
-    }
+   
 
     @Override
     public String toString() {

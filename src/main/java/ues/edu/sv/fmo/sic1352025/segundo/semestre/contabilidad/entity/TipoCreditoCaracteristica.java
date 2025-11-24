@@ -5,12 +5,13 @@
 package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -30,9 +31,8 @@ public class TipoCreditoCaracteristica implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Lob
     @Column(name = "id_tipo_credito_caracteristica")
-    private Object idTipoCreditoCaracteristica;
+    private UUID idTipoCreditoCaracteristica;
     @Column(name = "valor")
     private String valor;
     @JoinColumn(name = "id_metadato_tipo_credito", referencedColumnName = "id_metadato_tipo_credito")
@@ -45,15 +45,15 @@ public class TipoCreditoCaracteristica implements Serializable {
     public TipoCreditoCaracteristica() {
     }
 
-    public TipoCreditoCaracteristica(Object idTipoCreditoCaracteristica) {
+    public TipoCreditoCaracteristica(UUID idTipoCreditoCaracteristica) {
         this.idTipoCreditoCaracteristica = idTipoCreditoCaracteristica;
     }
 
-    public Object getIdTipoCreditoCaracteristica() {
+    public UUID getIdTipoCreditoCaracteristica() {
         return idTipoCreditoCaracteristica;
     }
 
-    public void setIdTipoCreditoCaracteristica(Object idTipoCreditoCaracteristica) {
+    public void setIdTipoCreditoCaracteristica(UUID idTipoCreditoCaracteristica) {
         this.idTipoCreditoCaracteristica = idTipoCreditoCaracteristica;
     }
 
@@ -88,19 +88,7 @@ public class TipoCreditoCaracteristica implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoCreditoCaracteristica)) {
-            return false;
-        }
-        TipoCreditoCaracteristica other = (TipoCreditoCaracteristica) object;
-        if ((this.idTipoCreditoCaracteristica == null && other.idTipoCreditoCaracteristica != null) || (this.idTipoCreditoCaracteristica != null && !this.idTipoCreditoCaracteristica.equals(other.idTipoCreditoCaracteristica))) {
-            return false;
-        }
-        return true;
-    }
-
+    
     @Override
     public String toString() {
         return "ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.TipoCreditoCaracteristica[ idTipoCreditoCaracteristica=" + idTipoCreditoCaracteristica + " ]";

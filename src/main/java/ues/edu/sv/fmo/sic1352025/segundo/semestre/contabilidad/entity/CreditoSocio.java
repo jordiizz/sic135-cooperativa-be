@@ -5,12 +5,12 @@
 package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
-import jakarta.persistence.Basic;
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -29,10 +29,8 @@ public class CreditoSocio implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @Lob
     @Column(name = "id_credito_socio")
-    private Object idCreditoSocio;
+    private UUID idCreditoSocio;
     @Column(name = "activo")
     private Boolean activo;
     @JoinColumn(name = "id_credito", referencedColumnName = "id_credito")
@@ -45,7 +43,7 @@ public class CreditoSocio implements Serializable {
     public CreditoSocio() {
     }
 
-    public CreditoSocio(Object idCreditoSocio) {
+    public CreditoSocio(UUID idCreditoSocio) {
         this.idCreditoSocio = idCreditoSocio;
     }
 
@@ -53,7 +51,7 @@ public class CreditoSocio implements Serializable {
         return idCreditoSocio;
     }
 
-    public void setIdCreditoSocio(Object idCreditoSocio) {
+    public void setIdCreditoSocio(UUID idCreditoSocio) {
         this.idCreditoSocio = idCreditoSocio;
     }
 

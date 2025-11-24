@@ -6,11 +6,12 @@ package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.UUID;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
@@ -31,9 +32,8 @@ public class MetadatoTipoCredito implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Lob
     @Column(name = "id_metadato_tipo_credito")
-    private Object idMetadatoTipoCredito;
+    private UUID idMetadatoTipoCredito;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "regex")
@@ -44,15 +44,15 @@ public class MetadatoTipoCredito implements Serializable {
     public MetadatoTipoCredito() {
     }
 
-    public MetadatoTipoCredito(Object idMetadatoTipoCredito) {
+    public MetadatoTipoCredito(UUID idMetadatoTipoCredito) {
         this.idMetadatoTipoCredito = idMetadatoTipoCredito;
     }
 
-    public Object getIdMetadatoTipoCredito() {
+    public UUID getIdMetadatoTipoCredito() {
         return idMetadatoTipoCredito;
     }
 
-    public void setIdMetadatoTipoCredito(Object idMetadatoTipoCredito) {
+    public void setIdMetadatoTipoCredito(UUID idMetadatoTipoCredito) {
         this.idMetadatoTipoCredito = idMetadatoTipoCredito;
     }
 
@@ -87,19 +87,7 @@ public class MetadatoTipoCredito implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MetadatoTipoCredito)) {
-            return false;
-        }
-        MetadatoTipoCredito other = (MetadatoTipoCredito) object;
-        if ((this.idMetadatoTipoCredito == null && other.idMetadatoTipoCredito != null) || (this.idMetadatoTipoCredito != null && !this.idMetadatoTipoCredito.equals(other.idMetadatoTipoCredito))) {
-            return false;
-        }
-        return true;
-    }
-
+ 
     @Override
     public String toString() {
         return "ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.MetadatoTipoCredito[ idMetadatoTipoCredito=" + idMetadatoTipoCredito + " ]";

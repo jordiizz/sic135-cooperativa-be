@@ -7,12 +7,13 @@ package ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Collection;
+import java.util.UUID;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -34,9 +35,8 @@ public class CuentaBancaria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Lob
     @Column(name = "id_cuenta_bancaria")
-    private Object idCuentaBancaria;
+    private UUID idCuentaBancaria;
     @Column(name = "activo")
     private Boolean activo;
     @Column(name = "saldo")
@@ -53,15 +53,15 @@ public class CuentaBancaria implements Serializable {
     public CuentaBancaria() {
     }
 
-    public CuentaBancaria(Object idCuentaBancaria) {
+    public CuentaBancaria(UUID idCuentaBancaria) {
         this.idCuentaBancaria = idCuentaBancaria;
     }
 
-    public Object getIdCuentaBancaria() {
+    public UUID getIdCuentaBancaria() {
         return idCuentaBancaria;
     }
 
-    public void setIdCuentaBancaria(Object idCuentaBancaria) {
+    public void setIdCuentaBancaria(UUID idCuentaBancaria) {
         this.idCuentaBancaria = idCuentaBancaria;
     }
 
