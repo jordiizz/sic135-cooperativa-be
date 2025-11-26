@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.UUID;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -61,6 +62,7 @@ public class TipoCuentaBancaria implements Serializable {
         this.nombre = nombre;
     }
 
+    @JsonbTransient
     public Collection<CuentaBancaria> getCuentaBancariaCollection() {
         return cuentaBancariaCollection;
     }
