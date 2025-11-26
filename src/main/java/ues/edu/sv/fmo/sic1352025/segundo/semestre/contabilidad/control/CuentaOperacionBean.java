@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.Query;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -32,11 +33,16 @@ public class CuentaOperacionBean extends AbstractDataPersist<CuentaOperacion> im
      */
         public String findNaturalezaCuentaOperacion(final String nombreOperacion, final CuentaContable cuentaContable) {
         try {
-            TypedQuery<String> q = em.createNamedQuery("CuentaOperacion.findNaturalezaCuentaOperacion", String.class);
-            q.setParameter("nombre", nombreOperacion);
-            q.setParameter("cuentaContable", cuentaContable);
+            // Usar query nativa SQL para evitar problemas con JPA
+            String sql = "SELECT co.naturaleza FROM cuenta_operacion co " +
+                        "JOIN operacion_bancaria ob ON co.id_operacion_bancaria = ob.id_operacion_bancaria " +
+                        "WHERE co.id_cuenta_contable = ?1 AND ob.nombre = ?2";
+            
+            Query q = em.createNativeQuery(sql);
+            q.setParameter(1, cuentaContable.getIdCuentaContable());
+            q.setParameter(2, nombreOperacion);
             q.setMaxResults(1);
-            return q.getSingleResult();
+            return (String) q.getSingleResult();
         }catch (Exception e) {
            Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
         }

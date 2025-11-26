@@ -25,10 +25,10 @@ import jakarta.persistence.Table;
 @Table(name = "cuenta_operacion")
 @NamedQueries({
     @NamedQuery(name = "CuentaOperacion.findAll", query = "SELECT c FROM CuentaOperacion c"),
-    @NamedQuery(name = "CuentaOperacion.findNaturalezaCuentaOperacion", query = "SELECT co.naturaleza\n" + //
-                "FROM CuentaOperacion co\n" + //
-                "WHERE co.idCuentaContable = :cuentaContable\n" + //
-                "  AND co.idOperacionBancaria.nombre = :nombre")
+    @NamedQuery(name = "CuentaOperacion.findNaturalezaCuentaOperacion", query = "SELECT co.naturaleza " +
+                "FROM CuentaOperacion co " +
+                "WHERE co.idCuentaContable.idCuentaContable = :idCuentaContable " +
+                "AND co.idOperacionBancaria.nombre = :nombre")
 })
 public class CuentaOperacion implements Serializable {
 

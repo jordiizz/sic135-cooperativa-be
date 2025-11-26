@@ -211,11 +211,11 @@ public class CreditoService {
 
         /* CUENTAS ASOCIADAS A LA OPERACION- ASIENTOS*/
         List<CuentaContable> listCuentasContablesAsociadas = cuentaContableBean.findByNameOperacionBancaria(operacionBancaria);
-        /*ASIENTOS CONTABLES */
-        asientoService.generarAsientoContable(listCuentasContablesAsociadas, monto, operacionBancaria);
+        /*ASIENTOS CONTABLES - usar montoAporte NO monto*/
+        asientoService.generarAsientoContable(listCuentasContablesAsociadas, montoAporte, operacionBancaria);
 
-        /*CABECERA TRANSACCION */
-        cabeceraTransaccionService.crearCabeceraTransaccion(monto, idCredito, TablaOrigen.CREDITO.getTablaOrigen(), operacionBancaria, idSocio);
+        /*CABECERA TRANSACCION - usar montoAporte NO monto*/
+        cabeceraTransaccionService.crearCabeceraTransaccion(montoAporte, idCredito, TablaOrigen.CREDITO.getTablaOrigen(), operacionBancaria, idSocio);
 
     }
 

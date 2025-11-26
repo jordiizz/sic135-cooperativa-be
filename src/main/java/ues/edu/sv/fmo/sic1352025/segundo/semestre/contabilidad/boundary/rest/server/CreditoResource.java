@@ -66,8 +66,8 @@ public class CreditoResource {
             creditoService.aporteCredito(creditoDTO);
             return Response.noContent().build();
         } catch (Exception e) {
-            // TODO: handle exception
-            return Response.serverError().build();
+            e.printStackTrace(); // Imprimir el error en los logs
+            return Response.serverError().entity(e.getMessage()).build();
         }
     }
 

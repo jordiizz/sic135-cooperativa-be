@@ -35,7 +35,17 @@ public class AsientoService extends AbstractService{
 
         /* ASIENTO CONTABLE */
         AsientoContable asientoContable = new AsientoContable(UUID.randomUUID());
+        asientoContable.setFecha(new java.util.Date());
+        
+        // Generar descripción significativa basada en la operación bancaria
+        String descripcion = operacionBancaria.replace("_", " ");
+        asientoContable.setDescripcion(descripcion);
+        asientoContable.setTotalDebe(BigDecimal.ZERO);
+        asientoContable.setTotalHaber(BigDecimal.ZERO);
+        
+        // PERSISTIR PRIMERO EL ASIENTO CONTABLE ANTES DE LOS DETALLES
         asientoContableBean.persistEntity(asientoContable);
+        
         for(CuentaContable cuentaContable: listCuentasContablesAsociadas){
             DetalleAsiento detalleAsiento;
 
@@ -49,17 +59,19 @@ public class AsientoService extends AbstractService{
 
             if(esDeudor){
                 totalDebe = totalDebe.add(monto);
-                detalleAsiento = generarDetalle(asientoContable, cuentaContable, monto, null);
+                detalleAsiento = generarDetalle(asientoContable, cuentaContable, monto, BigDecimal.ZERO);
             }else{
                 totalHaber = totalHaber.add(monto);
-                detalleAsiento = generarDetalle(asientoContable, cuentaContable, null, monto);
+                detalleAsiento = generarDetalle(asientoContable, cuentaContable, BigDecimal.ZERO, monto);
             }
 
             detalleAsientoBean.persistEntity(detalleAsiento);
         }
 
-        /* GENERAR ASIENTO CONTABLE */
-        asientoContableBean.persistEntity(asientoContable);
+        /* ACTUALIZAR TOTALES DEL ASIENTO CONTABLE */
+        asientoContable.setTotalDebe(totalDebe);
+        asientoContable.setTotalHaber(totalHaber);
+        asientoContableBean.updateEntity(asientoContable);
     }
 
 }
