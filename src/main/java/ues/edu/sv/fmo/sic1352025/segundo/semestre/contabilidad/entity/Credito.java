@@ -61,7 +61,7 @@ public class Credito implements Serializable {
     private Collection<CreditoSocio> creditoSocioCollection;
 
     @JoinColumn(name = "id_tipo_credito", referencedColumnName = "id_tipo_credito", columnDefinition = "uuid")
-    @ManyToOne(fetch = FetchType.LAZY )
+    @ManyToOne(fetch = FetchType.EAGER)
     private TipoCredito idTipoCredito;
 
     @Column(name = "fecha_vencimiento")
@@ -131,7 +131,6 @@ public class Credito implements Serializable {
         this.creditoSocioCollection = creditoSocioCollection;
     }
 
-    @JsonbTransient
     public TipoCredito getIdTipoCredito() {
         return idTipoCredito;
     }
